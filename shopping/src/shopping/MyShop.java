@@ -100,7 +100,7 @@ public class MyShop implements IShop {
 	void checkout() {
 		System.out.println(title + " : Ã¼Å©¾Æ¿ô");
 		System.out.println("=========================");
-		//Product [] a= (Product[]) cart.toArray();
+		Product [] a= (Product[]) cart;
 		int result = 0;
 		int i = 0;
 		/*for(;i<cart.size();i++) {
