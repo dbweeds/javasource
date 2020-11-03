@@ -12,6 +12,8 @@ public class ExceptionTest2 {
 		System.out.println(value1+value2);
 		System.out.println(value1);
 		System.out.println(value2);
+		System.out.println("ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ");
+		
 	}
 
 }
