@@ -71,6 +71,65 @@ public class EmployeeMain {
 									System.out.print("변경되셨습니다.");
 									break;
 								case 5:
+<<<<<<< HEAD
+									System.out.print("변경할 급여을 입력해주세요 : ");
+									employee[j].setPay(s.nextInt());
+									System.out.print("변경되셨습니다.");
+									break;
+								default:
+									System.out.print("잘못입력하셨습니다. ");
+									continue;
+								}
+							}
+						else if(choice == 2) {
+							System.out.println("지급받으실 월급은 "+employee[j].realPay()+"입니다.");
+							continue;
+						}
+						else if(choice == 3) {
+							choice = 0;
+							a = 0;
+							break;
+						}else {
+							System.out.println("잘못입력하셨습니다.");
+							continue;
+						}
+						}
+					}else {
+						j++;
+						a = 1;
+					}
+				if(a == 0 )
+					break;
+				}
+				if(a == 1) {
+					System.out.println("입력하신 사원이 없습니다.");
+					continue;
+				}
+			}
+			else if(choice == 2) {
+				while(i <employee.length) {
+					employee[i] = new Employee();
+					System.out.print("이름 : ");
+					name = s.next();
+					employee[i].setName(name);
+					System.out.print("성별 : ");
+					sex = s.next();
+					employee[i].setSex(sex);
+					System.out.print("사원번호 : ");
+					empNumber = s.next();
+					employee[i].setEmpNumber(empNumber);
+					System.out.print("이메일 : ");
+					employee[i].setEmail(s.next());
+					System.out.print("생년월일(Ex:1950-01-01) : ");
+					employee[i].setBirthday(s.next());
+					System.out.print("전화번호 : ");
+					employee[i].setTelno(s.next());
+					System.out.print("주소 : ");
+					employee[i].setAddress(s.next());
+					System.out.print("직급 : ");
+					employee[i].setPosition(s.next());
+					System.out.print("급여 : ");
+=======
 									System.out.print("변경할 연봉을 입력해주세요 : ");
 									employee[j].setPay(s.nextInt());
 									System.out.print("변경되셨습니다.");
@@ -128,6 +187,7 @@ public class EmployeeMain {
 					System.out.print("직급 : ");
 					employee[i].setPosition(s.next());
 					System.out.print("연봉 : ");
+>>>>>>> branch 'master' of https://github.com/dbweeds/javasource.git
 					employee[i].setPay(s.nextInt());
 					do {
 						a = 0;

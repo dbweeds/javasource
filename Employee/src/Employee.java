@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 
+>>>>>>> branch 'master' of https://github.com/dbweeds/javasource.git
 public class Employee {
 	private String name;
 	private String sex;
