@@ -22,67 +22,66 @@ public class EmployeeMain {
 
 		while(true) {
 			a = 0;
-			System.out.print("»ç¿ø°Ë»ö <1>  »ç¿øÀÔ·Â <2>  ÃÑÀÎ¿ø<3> :");
+			System.out.print("ì‚¬ì›ê²€ìƒ‰ <1>  ì‚¬ì›ì…ë ¥ <2>  ì´ì¸ì›<3> :");
 			choice = s.nextInt();
 			if(choice == 3) {
-				System.out.println("ÇöÀç ÃÑ »ç¿ø ¼ö´Â "+Employee.getCount()+"¸í ÀÔ´Ï´Ù.");
+				System.out.println("í˜„ì¬ ì´ ì‚¬ì› ìˆ˜ëŠ” "+Employee.getCount()+"ëª… ì…ë‹ˆë‹¤.");
 			}
 			else if(choice == 1) {
 				if(i == 0) {
-					System.out.println("»ç¿ø¸íÀÌ ÃÑ 0¸íÀÔ´Ï´Ù.");
+					System.out.println("ì‚¬ì›ëª…ì´ ì´ 0ëª…ì…ë‹ˆë‹¤.");
 					continue;
 				}
-				System.out.print("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä : ");
+				System.out.print("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš” : ");
 				name = s.next();
 				for(int j = 0;j < i;) {
 					if(employee[j].getName().equals(name)) {
 						a = 0;
-						System.out.print("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+						System.out.print("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 						if(!employee[j].getPassward().equals(s.next())) {
-							System.out.println("ºñ¹Ğ¹øÈ£°¡ Æ²¸®¼Ì½À´Ï´Ù.");
+							System.out.println("ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë¦¬ì…¨ìŠµë‹ˆë‹¤.");
 							break;
 						}
 						employee[j].displayBasicEmployee();
 						while(true) {
-							System.out.print("Á¤º¸¼öÁ¤ <1>  ¿ù±Ş°Ë»ö <2> ³ª°¡±â <3> : ");
+							System.out.print("ì •ë³´ìˆ˜ì • <1>  ì›”ê¸‰ê²€ìƒ‰ <2> ë‚˜ê°€ê¸° <3> : ");
 							choice = s.nextInt();
 							if(choice == 1) {
-								System.out.println("º¯°æÇÒ Á¤º¸¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä.");
-								System.out.println("Á÷±Ş <1>  ÀÌ¸ŞÀÏ <2>  ÀüÈ­¹øÈ£ <3>  ÁÖ¼Ò <4>  ±Ş¿© <5> : ");
+								System.out.println("ë³€ê²½í•  ì •ë³´ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”.");
+								System.out.println("ì§ê¸‰ <1>  ì´ë©”ì¼ <2>  ì „í™”ë²ˆí˜¸ <3>  ì£¼ì†Œ <4>  ê¸‰ì—¬ <5> : ");
 								switch(s.nextInt()) {
 								case 1:
-									System.out.print("º¯°æÇÒ Á÷±ŞÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+									System.out.print("ë³€ê²½í•  ì§ê¸‰ì„ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
 									employee[j].setPosition(s.next());
-									System.out.print("º¯°æµÇ¼Ì½À´Ï´Ù.");
+									System.out.print("ë³€ê²½ë˜ì…¨ìŠµë‹ˆë‹¤.");
 									break;
 								case 2:
-									System.out.print("º¯°æÇÒ ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+									System.out.print("ë³€ê²½í•  ì´ë©”ì¼ì„ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
 									employee[j].setEmail(s.next());
-									System.out.print("º¯°æµÇ¼Ì½À´Ï´Ù.");
+									System.out.print("ë³€ê²½ë˜ì…¨ìŠµë‹ˆë‹¤.");
 									break;
 								case 3:
-									System.out.print("º¯°æÇÒ ÀüÈ­¹øÈ£À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+									System.out.print("ë³€ê²½í•  ì „í™”ë²ˆí˜¸ì„ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
 									employee[j].setTelno(s.next());
-									System.out.print("º¯°æµÇ¼Ì½À´Ï´Ù.");
+									System.out.print("ë³€ê²½ë˜ì…¨ìŠµë‹ˆë‹¤.");
 									break;
 								case 4:
-									System.out.print("º¯°æÇÒ ÁÖ¼ÒÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+									System.out.print("ë³€ê²½í•  ì£¼ì†Œì„ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
 									employee[j].setAddress(s.next());
-									System.out.print("º¯°æµÇ¼Ì½À´Ï´Ù.");
+									System.out.print("ë³€ê²½ë˜ì…¨ìŠµë‹ˆë‹¤.");
 									break;
 								case 5:
-<<<<<<< HEAD
-									System.out.print("º¯°æÇÒ ±Ş¿©À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+									System.out.print("ë³€ê²½í•  ê¸‰ì—¬ì„ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
 									employee[j].setPay(s.nextInt());
-									System.out.print("º¯°æµÇ¼Ì½À´Ï´Ù.");
+									System.out.print("ë³€ê²½ë˜ì…¨ìŠµë‹ˆë‹¤.");
 									break;
 								default:
-									System.out.print("Àß¸øÀÔ·ÂÇÏ¼Ì½À´Ï´Ù. ");
+									System.out.print("ì˜ëª»ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤. ");
 									continue;
 								}
 							}
 						else if(choice == 2) {
-							System.out.println("Áö±Ş¹ŞÀ¸½Ç ¿ù±ŞÀº "+employee[j].realPay()+"ÀÔ´Ï´Ù.");
+							System.out.println("ì§€ê¸‰ë°›ìœ¼ì‹¤ ì›”ê¸‰ì€ "+employee[j].realPay()+"ì…ë‹ˆë‹¤.");
 							continue;
 						}
 						else if(choice == 3) {
@@ -90,7 +89,7 @@ public class EmployeeMain {
 							a = 0;
 							break;
 						}else {
-							System.out.println("Àß¸øÀÔ·ÂÇÏ¼Ì½À´Ï´Ù.");
+							System.out.println("ì˜ëª»ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤.");
 							continue;
 						}
 						}
@@ -102,109 +101,50 @@ public class EmployeeMain {
 					break;
 				}
 				if(a == 1) {
-					System.out.println("ÀÔ·ÂÇÏ½Å »ç¿øÀÌ ¾ø½À´Ï´Ù.");
+					System.out.println("ì…ë ¥í•˜ì‹  ì‚¬ì›ì´ ì—†ìŠµë‹ˆë‹¤.");
 					continue;
 				}
 			}
 			else if(choice == 2) {
 				while(i <employee.length) {
 					employee[i] = new Employee();
-					System.out.print("ÀÌ¸§ : ");
+					System.out.print("ì´ë¦„ : ");
 					name = s.next();
 					employee[i].setName(name);
-					System.out.print("¼ºº° : ");
+					System.out.print("ì„±ë³„ : ");
 					sex = s.next();
 					employee[i].setSex(sex);
-					System.out.print("»ç¿ø¹øÈ£ : ");
+					System.out.print("ì‚¬ì›ë²ˆí˜¸ : ");
 					empNumber = s.next();
 					employee[i].setEmpNumber(empNumber);
-					System.out.print("ÀÌ¸ŞÀÏ : ");
+					System.out.print("ì´ë©”ì¼ : ");
 					employee[i].setEmail(s.next());
-					System.out.print("»ı³â¿ùÀÏ(Ex:1950-01-01) : ");
+					System.out.print("ìƒë…„ì›”ì¼(Ex:1950-01-01) : ");
 					employee[i].setBirthday(s.next());
-					System.out.print("ÀüÈ­¹øÈ£ : ");
+					System.out.print("ì „í™”ë²ˆí˜¸ : ");
 					employee[i].setTelno(s.next());
-					System.out.print("ÁÖ¼Ò : ");
+					System.out.print("ì£¼ì†Œ : ");
 					employee[i].setAddress(s.next());
-					System.out.print("Á÷±Ş : ");
+					System.out.print("ì§ê¸‰ : ");
 					employee[i].setPosition(s.next());
-					System.out.print("±Ş¿© : ");
-=======
-									System.out.print("º¯°æÇÒ ¿¬ºÀÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
-									employee[j].setPay(s.nextInt());
-									System.out.print("º¯°æµÇ¼Ì½À´Ï´Ù.");
-									break;
-								default:
-									System.out.print("Àß¸øÀÔ·ÂÇÏ¼Ì½À´Ï´Ù. ");
-									continue;
-								}
-							}
-						else if(choice == 2) {
-							System.out.println("Áö±Ş¹ŞÀ¸½Ç ¿ù±ŞÀº "+employee[j].realPay()+"ÀÔ´Ï´Ù.");
-							continue;
-						}
-						else if(choice == 3) {
-							choice = 0;
-							a = 0;
-							break;
-						}else {
-							System.out.println("Àß¸øÀÔ·ÂÇÏ¼Ì½À´Ï´Ù.");
-							continue;
-						}
-						}
-					}else {
-						j++;
-						a = 1;
-					}
-				if(a == 0 )
-					break;
-				}
-				if(a == 1) {
-					System.out.println("ÀÔ·ÂÇÏ½Å »ç¿øÀÌ ¾ø½À´Ï´Ù.");
-					continue;
-				}
-			}
-			else if(choice == 2) {
-				while(i <employee.length) {
-					employee[i] = new Employee();
-					System.out.print("ÀÌ¸§ : ");
-					name = s.next();
-					employee[i].setName(name);
-					System.out.print("¼ºº° : ");
-					sex = s.next();
-					employee[i].setSex(sex);
-					System.out.print("»ç¿ø¹øÈ£ : ");
-					empNumber = s.next();
-					employee[i].setEmpNumber(empNumber);
-					System.out.print("ÀÌ¸ŞÀÏ : ");
-					employee[i].setEmail(s.next());
-					System.out.print("»ı³â¿ùÀÏ(Ex:1950-01-01) : ");
-					employee[i].setBirthday(s.next());
-					System.out.print("ÀüÈ­¹øÈ£ : ");
-					employee[i].setTelno(s.next());
-					System.out.print("ÁÖ¼Ò : ");
-					employee[i].setAddress(s.next());
-					System.out.print("Á÷±Ş : ");
-					employee[i].setPosition(s.next());
-					System.out.print("¿¬ºÀ : ");
->>>>>>> branch 'master' of https://github.com/dbweeds/javasource.git
+					System.out.print("ê¸‰ì—¬ : ");
 					employee[i].setPay(s.nextInt());
 					do {
 						a = 0;
-						System.out.print("ºñ¹Ğ¹øÈ£ : ");
+						System.out.print("ë¹„ë°€ë²ˆí˜¸ : ");
 						passward =s.next();
 						employee[i].setPassward(passward);
-						System.out.print("ºñ¹Ğ¹øÈ£ È®ÀÎ : ");
+						System.out.print("ë¹„ë°€ë²ˆí˜¸ í™•ì¸ : ");
 						if(!passward.equals(s.next())) {
-							System.out.println("Àß¸øÀÔ·ÂÇÏ¼Ì½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä. ");
+							System.out.println("ì˜ëª»ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”. ");
 							a = 1;
 						}
 							
 					}while(a == 1);
 					employee[i].displayAllEmployee();
-					System.out.print("ÀúÀåÇÏ½Ç·Á¸é <1>,´Ù½Ã ÀÔ·ÂÇÏ½Ç·Á¸é <2> : ");
+					System.out.print("ì €ì¥í•˜ì‹¤ë ¤ë©´ <1>,ë‹¤ì‹œ ì…ë ¥í•˜ì‹¤ë ¤ë©´ <2> : ");
 					if(s.nextInt() == 1) {
-						System.out.println("Á¤º¸°¡ ÀúÀåµÇ¾ú½À´Ï´Ù.");
+						System.out.println("ì •ë³´ê°€ ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤.");
 						i++;
 						Employee.setCount();
 						break;
@@ -213,7 +153,7 @@ public class EmployeeMain {
 				}
 				
 			}else {
-				System.out.println("Àß¸øÀÔ·ÂÇÏ¼Ì½À´Ï´Ù.");
+				System.out.println("ì˜ëª»ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤.");
 			}
 			
 				

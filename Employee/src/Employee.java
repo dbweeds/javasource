@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/dbweeds/javasource.git
 public class Employee {
 	private String name;
 	private String sex;
@@ -50,12 +46,12 @@ public class Employee {
 
 
 	public void displayAllEmployee() {
-		System.out.printf("ÀÌ¸§ : %s, ¼ºº° : %s, »ç¿ø¹øÈ£ : %s, Á÷±Ş : %s,ÀÌ¸ŞÀÏ : %s, »ı³â¿ùÀÏ : %s ÀüÈ­¹øÈ£ : %s, ÁÖ¼Ò : %s, ±Ş¿© : %f\n",  
+		System.out.printf("ì´ë¦„ : %s, ì„±ë³„ : %s, ì‚¬ì›ë²ˆí˜¸ : %s, ì§ê¸‰ : %s,ì´ë©”ì¼ : %s, ìƒë…„ì›”ì¼ : %s ì „í™”ë²ˆí˜¸ : %s, ì£¼ì†Œ : %s, ê¸‰ì—¬ : %f\n",  
 						  name, sex, empNumber, position,email, birthday, telno, address, pay);
 		
 	}
 	public void displayBasicEmployee() {
-		System.out.printf("ÀÌ¸§ : %s, ¼ºº° : %s, »ç¿ø¹øÈ£ : %s, Á÷±Ş : %s,ÀÌ¸ŞÀÏ : %s, »ı³â¿ùÀÏ : %s ÀüÈ­¹øÈ£ : %s, ÁÖ¼Ò : %s\n",  
+		System.out.printf("ì´ë¦„ : %s, ì„±ë³„ : %s, ì‚¬ì›ë²ˆí˜¸ : %s, ì§ê¸‰ : %s,ì´ë©”ì¼ : %s, ìƒë…„ì›”ì¼ : %s ì „í™”ë²ˆí˜¸ : %s, ì£¼ì†Œ : %s\n",  
 						  name, sex, empNumber, position,email, birthday, telno, address);
 		
 	}
@@ -94,23 +90,23 @@ public class Employee {
 
 	public void setPosition(String position) {
 		switch(position) {
-		case "ÁÖÀÓ":
+		case "ì£¼ì„":
 			this.position = position;
 			break;
 			
-		case "´ë¸®":
+		case "ëŒ€ë¦¬":
 			this.position = position;
 			break;
 			
-		case "°úÀå":
+		case "ê³¼ì¥":
 			this.position = position;
 			break;
 			
-		case "Â÷Àå":
+		case "ì°¨ì¥":
 			this.position = position;
 			break;
 		
-		case "ºÎÀå":
+		case "ë¶€ì¥":
 			this.position = position;
 			break;
 		
