@@ -1,13 +1,12 @@
+package Persistence;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.SQLException;
 
-public class Employee {
-	static List<EmployeeVO> list = new ArrayList<EmployeeVO>();
-	
+public class JDBCUtil {
 	static {
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
@@ -22,10 +21,13 @@ public class Employee {
 		
 		try {
 			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-			String user = "employeedb";
+			String user = "javadb";
 			String password = "12345";
 			
 			con  = DriverManager.getConnection(url,user,password);
+			//auto commit 중지
+			con.setAutoCommit(false);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			
@@ -56,10 +58,19 @@ public class Employee {
 		}
 	}
 	
-	public double realPay() {
-		return ((pay - ((pay*0.033)+(pay*0.045)+(pay*0.008)))/12);
+	public static void commit(Connection con) {
+		try {
+			con.commit();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
-	
+	public static void rollback(Connection con) {
+		try {
+			con.rollback();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
-	
