@@ -1,68 +1,65 @@
 package Ui;
 
-import java.util.List;
 import java.util.Scanner;
+
+import Action.Action;
+import Action.UserAddAction;
+import Action.UserListAction;
+import Action.UserRemoveAction;
+import Action.UserRowAction;
+import Action.UserUpdateAction;
+import controller.UserController;
 
 public class UserMain {
 
 	public static void main(String[] args) {
-		System.out.println("===== UserTBL =====");
-		System.out.println("1. 조회");
-		System.out.println("2. 삽입");
-		System.out.println("3. 삭제");
-		System.out.println("4. 수정");
-		System.out.println("===================");
-		
-		System.out.print("번호입력 : ");
+		boolean isStop = false;
 		Scanner sc = new Scanner(System.in);
-		int menu = sc.nextInt();
+		UserController userController = new UserController();
+		do {
+			System.out.println("===== 사용자 메뉴 =====");
+			System.out.println("1. 전체 조회");
+			System.out.println("2. 삽입");
+			System.out.println("3. 삭제");
+			System.out.println("4. 수정");
+			System.out.println("5. 개별 조회");
+			System.out.println("6. 프로그램 종료");
+			System.out.println("====================");
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-//		UserDAO dao = new UserDAO();
-//		switch(menu) {
-//		case 1:
-//			System.out.println("userTBL 전체 출력");
-//			List<UserVO> list =dao.getList();
-//			for(UserVO a :list)
-//				System.out.println(a);
-//			
-//			break;
-//		case 2:
-//			UserVO vo = new UserVO();
-//			System.out.println("회원정보 입력");
-//			System.out.print("이름 입력 :");
-//			vo.setUserName(sc.next());
-//			System.out.print("출생연도 입력 :");
-//			vo.setBirthYear(sc.nextInt());
-//			System.out.print("주소 입력 :");
-//			vo.setAddr(sc.next());
-//			System.out.print("전화번호 입력 :");
-//			vo.setMobile(sc.next());
-//			System.out.println(dao.insertUser(vo)?"입력성공":"입력실패");
-//			
-//			break;
-//		case 3:
-//			System.out.print("삭제할 회원번호 입력 :");
-//			int no = sc.nextInt();
-//			System.out.println(dao.deleteUser(no)?"삭제성공":"삭제실패");
-//			break;
-//		case 4:
-//			System.out.println("수정할 회원정보 입력");
-//			System.out.print("수정할 회원번호 입력 : ");
-//			no = sc.nextInt();
-//			System.out.print("수정할 주소 입력 : ");
-//			String addr = sc.next();
-//			System.out.println(dao.updateUser(addr, no)?"수정성공":"수정실패");
-//			break;
-//		}
+			System.out.print("번호입력 : ");
+			int menu = sc.nextInt();
+			
+			Action action = null;
+			
+			switch(menu) {
+			case 1:
+				action = new UserListAction();
+				break;
+			case 2:
+				action = new UserAddAction();
+				break;
+			case 3:
+				action = new UserRemoveAction();
+				break;
+			case 4:
+				action = new UserUpdateAction();
+				break;
+			case 5:
+				action = new UserRowAction();
+				break;
+			case 6:
+				System.out.println("프로그램 종료");
+				isStop = true;//반복문 종료
+				break;
+			default:
+				
+			}
+			
+			if(action != null) {
+				userController.processRequest(action, sc);
+			}
+			
+		}while(!isStop);
 	}
 
 }
