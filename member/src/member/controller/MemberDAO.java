@@ -38,6 +38,33 @@ public class MemberDAO {
 		}
 		return result;
 	}
+	public MemberVO memberSearch(int id) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		MemberVO vo = null;
+		try {
+			String sql = "select * from member where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				int id1 = rs.getInt("id");
+				String name = rs.getString("name");
+				String addr = rs.getString("addr");
+				String nation = rs.getString("nation");
+				String email = rs.getString("email");
+				int age = rs.getInt("age");
+				vo = new MemberVO(id1,name,addr,nation,email,age);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return vo;
+	}
+	
 	//조회
 	public List<MemberVO> memberList(){
 		
@@ -90,7 +117,7 @@ public class MemberDAO {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		try {
-			String sql ="delete form member where id = ?";
+			String sql ="delete from member where id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, id);
 			result = pstmt.executeUpdate();
