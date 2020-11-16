@@ -14,10 +14,9 @@ public class EmployeeVO {
 	protected String passward;
 	
 	
-	
-	
-	
-	
+	public EmployeeVO() {
+		
+	}
 	public EmployeeVO(int no, String name, String sex, String telno, String birthday, String address, String email,
 			int pay, String position, String id, String passward) {
 		super();

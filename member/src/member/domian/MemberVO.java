@@ -62,7 +62,7 @@ public class MemberVO {
 		this.age = age;
 	}
 	public MemberVO() {
-		super();
+		
 	}
 	public MemberVO(String name, String addr, String nation, String email, int age) {
 		super();

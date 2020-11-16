@@ -13,11 +13,8 @@ public class MemberUpdateAction implements Action {
 		MemberConsoleUtil console = new MemberConsoleUtil();
 		MemberVO vo = console.printMemberUpdate(sc);
 		MemberUpdateService service = new MemberUpdateService();
-		if(service.updateService(vo)) {
-			console.preintUpdateSuccessMessage();
-		}else {
-			console.preintUpdateFailMessage();
-		}
+		console.preintUpdateSuccessFail(service.updateService(vo));
+		
 
 	}
 

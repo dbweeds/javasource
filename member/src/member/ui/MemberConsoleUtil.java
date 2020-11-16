@@ -75,10 +75,8 @@ public class MemberConsoleUtil {
 	public void preintRemoveFailMessage() {
 		System.out.println(" 회원 정보 삭제 실패");
 	}
-	public void preintUpdateSuccessMessage() {
-		System.out.println(" 회원 정보 수정 성공");
+	public void preintUpdateSuccessFail(boolean service) {
+		System.out.println(service?" 회원 정보 수정 성공":" 회원 정보 수정 실패");
 	}
-	public void preintUpdateFailMessage() {
-		System.out.println(" 회원 정보 수정 실패");
-	}
+	
 }

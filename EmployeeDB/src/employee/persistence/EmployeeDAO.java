@@ -39,6 +39,37 @@ public class EmployeeDAO {
 		}
 		return result;
 	}
+	public EmployeeVO employeeSelect(int no) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		EmployeeVO vo = null;
+		try {
+			String sql = "select * from employee where no = ?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				int no1 = rs.getInt("no");
+				String name = rs.getString("name");
+				String sex = rs.getString("sex");
+				String telno = rs.getString("telno");
+				String birthday = rs.getString("birthday");
+				String address = rs.getString("address");
+				String email = rs.getString("email");
+				int pay = rs.getInt("pay");
+				String position = rs.getString("position");
+				String id = rs.getString("id");
+				String passward = rs.getString("passward");
+				vo = new EmployeeVO(no1,name,sex,telno,birthday,address,email,pay,position,id,passward);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			close(rs);
+		}
+		return vo;
+	}
 	public List<EmployeeVO> employeeList() {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -69,16 +100,35 @@ public class EmployeeDAO {
 		}
 		return list;
 	}
-	public int employeeUpdate(EmployeeVO vo) {
+	public int employeeUpdate(String want,String answer,EmployeeVO vo) {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		try {
-			
+			String sql = "update employee set ? = ? where no = ?";
+			pstmt.setString(1, want);
+			pstmt.setString(2, answer);
+			pstmt.setInt(3, vo.getno());
+			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
 			close(pstmt);
 		}
-				
+		return result;		
+	}
+	public int employeeRemove(int no) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			String sql = "delete from employee where no = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
 	}
 }
