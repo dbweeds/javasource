@@ -27,8 +27,8 @@ public class InputStreamTest4 {
 			e.printStackTrace();
 		}finally {
 			try {
-				close(in);
-				close(out);
+				//close(in);
+				//close(out);
 				
 			} catch (Exception e2) {
 				e2.printStackTrace();
