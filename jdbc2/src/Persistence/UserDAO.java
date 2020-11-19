@@ -2,6 +2,7 @@
 
 import static Persistence.JDBCUtil.close;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -151,8 +152,34 @@ public class UserDAO {
 		}
 		return flag;
 	}
-	
-	
+	//저장 프로시저를 사용하는 메소드
+public boolean insertNewUser(UserVO vo) {
+		
+		CallableStatement stmt = null;
+		boolean flag = false;
+		
+		try {
+		
+			String sql = "{call ragister_user(?,?,?,?)}";
+			stmt = con.prepareCall(sql);
+			
+			stmt.setString(1, vo.getUserName());
+			stmt.setInt(2, vo.getBirthYear());
+			stmt.setString(3, vo.getAddr());
+			stmt.setString(4, vo.getMobile());
+			
+			int result = stmt.executeUpdate();
+			if(result>0) {
+				flag = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			//close(pstmt);
+		
+		}
+		return flag;
+	}
 	
 }
 

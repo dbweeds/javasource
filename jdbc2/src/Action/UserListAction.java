@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Scanner;
 
 import Domain.UserVO;
+import Service.UserListService;
 import Ui.ConsoleUtil;
-import service.UserListService;
 
 public class UserListAction implements Action {
 

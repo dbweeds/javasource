@@ -1,4 +1,4 @@
-package service;
+package Service;
 
 import static Persistence.JDBCUtil.close;
 import static Persistence.JDBCUtil.commit;
@@ -16,14 +16,18 @@ public class UserAddService {
 		//DAO작업
 		Connection con = getConnection();
 		UserDAO dao = new UserDAO(con);
+//		
+//		if(dao.insertUser(vo)) {
+//			commit(con);
+//			isInsertSuccess = true;
+//		}else {
+//			rollback(con);
+//		}
 		
-		if(dao.insertUser(vo)) {
-			commit(con);
+		
+		//프로시저
+		if(dao.insertNewUser(vo))
 			isInsertSuccess = true;
-		}else {
-			rollback(con);
-		}
-		
 		close(con);
 		
 		return isInsertSuccess;
