@@ -32,6 +32,20 @@ public class EmployeeVO {
 		this.id = id;
 		this.passward = passward;
 	}
+	public EmployeeVO(String name, String sex, String telno, String birthday, String address, String email,
+			int pay, String position, String id, String passward) {
+		super();
+		this.name = name;
+		this.sex = sex;
+		this.telno = telno;
+		this.birthday = birthday;
+		this.address = address;
+		this.email = email;
+		this.pay = pay;
+		this.position = position;
+		this.id = id;
+		this.passward = passward;
+	}
 	@Override
 	public String toString() {
 		return "EmployeeVO [no=" + no + ", name=" + name + ", sex=" + sex + ", telno=" + telno + ", birthday="

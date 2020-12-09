@@ -8,18 +8,72 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import employee.domain.EmployeeMenegerVO;
+import employee.domain.EmployeeUpdateVO;
 import employee.domain.EmployeeVO;
 public class EmployeeDAO {
 	Connection con;
 	public EmployeeDAO(Connection con) {
 		this.con = con;
 	}
+	public EmployeeVO employeeUserLogin(EmployeeVO vo) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try { 
+			String sql ="select * from employee where id = ? and passward = ? ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, vo.getId());
+			pstmt.setString(2, vo.getPassward());
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				vo.setNo(rs.getInt("no"));
+				vo.setName(rs.getString("name"));
+				vo.setSex(rs.getString("sex"));
+				vo.setTelno(rs.getString("telno"));
+				vo.setBirthday(rs.getString("birthday"));
+				vo.setAddress(rs.getString("address"));
+				vo.setEmail(rs.getString("email"));
+				vo.setPay(rs.getInt("pay"));
+				vo.setPosition(rs.getString("position"));
+				vo.setId(rs.getString("id"));
+				vo.setPassward(rs.getString("passward"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return vo;
+	}
+	public EmployeeMenegerVO employeeMenegerLogin(EmployeeMenegerVO vo) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try { 
+			String sql ="select * from employeemeneger where id = ? and passward = ? ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, vo.getId());
+			pstmt.setString(2, vo.getPassward());
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				vo.setId(rs.getString("id"));
+				vo.setName(rs.getString("name"));
+				vo.setPassward(rs.getString("passward"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return vo;
+	}
 	
 	public int employeeInsert(EmployeeVO vo) {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		try {
-			String sql = "insert into employee values(employee_seq.nextval,?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into employee values(employee_seq.nextval,?,?,?,?,?,?,?,?,?,?)";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, vo.getName());
 			pstmt.setString(2, vo.getSex());
@@ -29,8 +83,8 @@ public class EmployeeDAO {
 			pstmt.setString(6, vo.getEmail());
 			pstmt.setInt(7, vo.getPay());
 			pstmt.setString(8, vo.getPosition());
-			pstmt.setString(8, vo.getId());
-			pstmt.setString(9, vo.getPassward());
+			pstmt.setString(9, vo.getId());
+			pstmt.setString(10, vo.getPassward());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -100,14 +154,19 @@ public class EmployeeDAO {
 		}
 		return list;
 	}
-	public int employeeUpdate(String want,String answer,EmployeeVO vo) {
+	public int employeeUpdate(EmployeeUpdateVO vo) {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		try {
-			String sql = "update employee set ? = ? where no = ?";
-			pstmt.setString(1, want);
-			pstmt.setString(2, answer);
-			pstmt.setInt(3, vo.getno());
+			
+			String sql = "update employee set "+vo.getChoice()+" = ? where no = ?";
+			pstmt = con.prepareStatement(sql);
+			if(vo.getChoice().equals("pay")) {
+			pstmt.setInt(1,Integer.parseInt(vo.getAnswer()) );
+			}else {
+				pstmt.setString(1,vo.getAnswer());
+			}
+			pstmt.setInt(2, vo.getNo());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
